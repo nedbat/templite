@@ -257,6 +257,7 @@ class TempliteTest(unittest.TestCase):
             {'nums': [0, 1, 2], 'abc': ['a', 'b', 'c']},
             "@a0b0c0\na1b1c1\na2b2c2\n!\n"
             )
+        self.try_render("  hello  ", {}, "  hello  ")
 
     def test_non_ascii(self):
         self.try_render(

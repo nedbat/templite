@@ -250,12 +250,13 @@ class TempliteTest(unittest.TestCase):
             "@{% for n in nums -%}\n"
             " {% for a in abc -%}\n"
             "  {# this disappears completely -#}\n"
-            "  {{a -}}\n"
+            "  {{a-}}\n"
             "  {{n -}}\n"
+            "  {{n    -}}\n"
             " {% endfor %}\n"
             "{% endfor %}!\n",
             {'nums': [0, 1, 2], 'abc': ['a', 'b', 'c']},
-            "@a0b0c0\na1b1c1\na2b2c2\n!\n"
+            "@a00b00c00\na11b11c11\na22b22c22\n!\n"
             )
         self.try_render("  hello  ", {}, "  hello  ")
 

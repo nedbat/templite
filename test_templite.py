@@ -277,8 +277,8 @@ class TempliteTest(unittest.TestCase):
 
     def test_exception_during_evaluation(self):
         # TypeError: Couldn't evaluate {{ foo.bar.baz }}:
-        msg = "Couldn't evaluate None.bar"
-        with self.assertRaisesRegex(TempliteValueError, msg):
+        regex = "^Couldn't evaluate None.bar$"
+        with self.assertRaisesRegex(TempliteValueError, regex):
             self.try_render(
                 "Hey {{foo.bar.baz}} there", {'foo': None}, "Hey ??? there"
             )
